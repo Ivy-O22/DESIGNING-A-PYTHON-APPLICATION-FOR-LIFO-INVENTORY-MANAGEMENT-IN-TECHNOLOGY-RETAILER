@@ -1,0 +1,122 @@
+BEGIN
+// Inventory Management System
+
+Initialize an empty dictionary called inventory
+
+Define function batchdate(date_str):
+    Try to convert date_str to datetime object with format "YY/MM/DD"
+    If successful:
+        Return datetime object
+    Else:
+        Display "Invalid date format" message
+        Return None
+
+Define function add_product():
+    Input product name (convert to lowercase)
+    Input batch date
+    Call batchdate() to validate date
+    If date is invalid:
+        Return
+    
+    Try to input quantity as integer
+    If invalid:
+        Display "Invalid quantity" message
+        Return
+    
+    If product exists in inventory:
+        Ask if same unit cost as before
+        If yes:
+            Get cost from most recent batch
+        Else:
+            Input new unit cost
+            If invalid:
+                Display "Invalid cost" message
+                Return
+    Else:
+        Input unit cost
+        If invalid:
+            Display "Invalid cost" message
+            Return
+    
+    Create new batch with date, quantity, and cost
+    Add batch to inventory for this product
+    Display confirmation message
+
+Define function remove_product():
+    Input product name to remove (convert to lowercase)
+    If product not in inventory or inventory empty:
+        Display "Product not found" message
+        Return
+    
+    Input quantity to remove as integer
+    If invalid:
+        Display "Invalid input" message
+        Return
+    
+    Sort product batches by date (newest first)
+    
+    Initialize removed counter to 0
+    
+    While quantity to remove > 0 and batches exist:
+        Get newest batch
+        If batch quantity <= quantity to remove:
+            Subtract batch quantity from quantity to remove
+            Add batch quantity to removed counter
+            Remove batch from inventory
+        Else:
+            Subtract quantity to remove from batch quantity
+            Add quantity to remove to removed counter
+            Set quantity to remove to 0
+    
+    If removed counter > 0:
+        Display removal confirmation
+    Else:
+        Display "Not enough quantity" message
+
+Define function check_inventory():
+    If inventory is empty:
+        Display "Inventory is empty" message
+        Return
+    
+    Display inventory header
+    For each product in sorted order:
+        Sort batches by date (newest first)
+        For each batch:
+            Display product name, date, quantity, and cost
+
+Define function main():
+    Display welcome message
+    
+    Loop forever:
+        Ask user if they want to continue (yes/no)
+        If yes:
+            Break loop
+        Else if no:
+            Display "Goodbye"
+            Exit program
+        Else:
+            Display "Invalid input" message
+    
+    Loop forever:
+        Display menu options:
+            1. Add product
+            2. Remove product
+            3. Check inventory
+            4. Exit
+        
+        Input user choice
+        
+        If choice is 1:
+            Call add_product()
+        Else if choice is 2:
+            Call remove_product()
+        Else if choice is 3:
+            Call check_inventory()
+        Else if choice is 4:
+            Display "Thank you! Goodbye!"
+            Break loop
+        Else:
+            Display "Invalid choice" message
+
+Call menu()
+END
