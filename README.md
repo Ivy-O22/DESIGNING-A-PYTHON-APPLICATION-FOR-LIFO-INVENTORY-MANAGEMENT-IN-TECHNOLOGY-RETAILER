@@ -10,7 +10,6 @@
 1. [Main Features](#main-features)
 2. [Installation](#installation)
 3. [Tools and Techniques](#tools-and-techniques)
-4. [Usage](#usage)
 
 ---
 
@@ -27,6 +26,3 @@
 ## Tools and Techniques
 
 ---
-
-## Usage
-
