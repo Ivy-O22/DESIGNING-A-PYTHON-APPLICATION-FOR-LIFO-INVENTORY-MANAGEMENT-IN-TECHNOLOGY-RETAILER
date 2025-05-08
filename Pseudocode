@@ -84,7 +84,7 @@ Define function check_inventory():
         For each batch:
             Display product name, date, quantity, and cost
 
-Define function main():
+Define function menu():
     Display welcome message
     
     Loop forever:
