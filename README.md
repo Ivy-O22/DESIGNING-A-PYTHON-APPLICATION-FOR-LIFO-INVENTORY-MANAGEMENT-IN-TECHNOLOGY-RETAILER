@@ -18,8 +18,11 @@
 • An in-memory system for tracking product batches using dictionaries and lists.
 
 • Core program functions:
+  
   -> add_product() – Adds new product batches, storing quantity, cost, and batch date.
+  
   -> remove_product() – Removes stock using Last-In, First-Out (LIFO) logic.
+  
   -> check_inventory() – Displays the current inventory with all batch details.
 
 • Support for input validation to ensure clean and accurate data handling.
