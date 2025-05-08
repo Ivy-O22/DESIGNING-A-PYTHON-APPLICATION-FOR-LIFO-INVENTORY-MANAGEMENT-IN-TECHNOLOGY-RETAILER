@@ -34,9 +34,9 @@
 ---
 
 ## Tools and Techniques
-  1.Python version 3.+: The system is written in Python because of its beginner-friendly syntax, support for dynamic data structures, and built-in error handling. It manages core tasks like adding and removing stock, user input, and product listing.
+  1.  Python version 3.+: The system is written in Python because of its beginner-friendly syntax, support for dynamic data structures, and built-in error handling. It manages core tasks like adding and removing stock, user input, and product listing.
   
-  2.Text Editor or IDE (VS Code, etc.): The code is developed and run using a text editor or an IDE. These tools help streamline coding with useful features such as syntax highlighting, error detection, and integrated terminal support.
+  2.  Text Editor or IDE (VS Code, etc.): The code is developed and run using a text editor or an IDE. These tools help streamline coding with useful features such as syntax highlighting, error detection, and integrated terminal support.
   
   3.  Terminal Interface:  All interactions with the system take place through a text-based terminal. This keeps the system lightweight and avoids the need for a graphical user interface (GUI), making it easy to run on most computers.
   
