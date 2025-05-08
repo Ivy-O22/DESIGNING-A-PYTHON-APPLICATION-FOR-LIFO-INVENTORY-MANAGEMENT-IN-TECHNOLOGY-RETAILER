@@ -1,7 +1,9 @@
 📦 **LIFO Inventory Management System in Python**
 
 **Project Title:** Designing a Python Application for LIFO Inventory Management in Technology Retailer | LifoStack
+
 **Created By:** Ona, Ivy Noelle Marie M. | Peñaflorida, Derick Gabriel A. | Peñaflorida, Cedrick Miguel A.  
+
 **Date:** May 2025
 
 ---
