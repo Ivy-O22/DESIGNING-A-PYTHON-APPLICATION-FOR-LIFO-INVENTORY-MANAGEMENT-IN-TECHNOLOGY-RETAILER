@@ -10,7 +10,7 @@
 
 ## 📌 Table of Contents
 1. [Main Features](#main-features)
-2. [Tools and Techniques](#tools-and-techniques)
+2. [Requirements](#requirements)
 
 ---
 
@@ -35,21 +35,18 @@
 
 ---
 
-## Tools and Techniques
-  1.  Python version 3.+: The system is written in Python because of its beginner-friendly syntax, support for dynamic data structures, and built-in error handling. It manages core tasks like adding and removing stock, user input, and product listing.
-  
-  2.  Text Editor or IDE (VS Code, etc.): The code is developed and run using a text editor or an IDE. These tools help streamline coding with useful features such as syntax highlighting, error detection, and integrated terminal support.
-  
-  3.  Terminal Interface:  All interactions with the system take place through a text-based terminal. This keeps the system lightweight and avoids the need for a graphical user interface (GUI), making it easy to run on most computers.
-  
-  4.  Dictionaries for In-Memory Storage: Product information is stored in a Python dictionary, where each product name maps to a list of batch records (each containing date, quantity, and cost). This allows for quick and flexible data access and modification during runtime.
-  
-  5.  No Persistent Storage: The system does not use text files or databases to save data. All inventory records exist only while the program is running. Once the user exits the terminal or ends the session, all data is lost.
-  
-  6.  String and Date Handling: The program uses string methods like strip() and lower() to clean user input and ensure case-insensitive matching. Dates are handled using Python's datetime module to validate and sort batch entries correctly.
-  
-  7.  LIFO (Last-In, First-Out) Logic: The inventory uses a LIFO approach when removing stock. This means the most recently added batch (latest date) is prioritized for removal. It ensures that older inventory remains untouched until newer items are cleared out.
+## Requirements
+Requirements:
+1. Python 3 Installed
+	This program is written in Python and works with Python version 3.8 or higher.
+	📥 Download Python here: https://www.python.org/downloads/
 
-  8.  Error Checking: The system includes multiple error-handling checks—such as validating date formats, numeric inputs, and available stock—to avoid crashes and guide the user to enter correct data.
+2. Basic Text Editor or IDE (Optional but helpful)
+	To open or edit the code:
+		📝 Simple: Notepad (Windows) or TextEdit (macOS)
+		🧠 Recommended: VS Code or PyCharm
+
+3. Command Line or Terminal Access
+	You’ll run the program using Command Prompt (Windows) or Terminal (macOS/Linux).
 
 ---
