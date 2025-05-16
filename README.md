@@ -38,15 +38,21 @@
 ## Requirements
 Requirements:
 1. Python 3 Installed
-	This program is written in Python and works with Python version 3.8 or higher.
-	📥 Download Python here: https://www.python.org/downloads/
+	
+ 	This program is written in Python and works with Python version 3.8 or higher.
+	
+ 	📥 Download Python here: https://www.python.org/downloads/
 
 2. Basic Text Editor or IDE (Optional but helpful)
-	To open or edit the code:
-		📝 Simple: Notepad (Windows) or TextEdit (macOS)
-		🧠 Recommended: VS Code or PyCharm
+	
+ 	To open or edit the code:
 
-3. Command Line or Terminal Access
-	You’ll run the program using Command Prompt (Windows) or Terminal (macOS/Linux).
+	📝 Simple: Notepad (Windows) or TextEdit (macOS)
+
+	🧠 Recommended: VS Code or PyCharm
+
+4. Command Line or Terminal Access
+	
+ 	You’ll run the program using Command Prompt (Windows) or Terminal (macOS/Linux).
 
 ---
