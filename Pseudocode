@@ -4,51 +4,59 @@ BEGIN
 Initialize an empty dictionary called inventory
 
 Define function batchdate(date_str):
-    Try to convert date_str to datetime object with format "YY/MM/DD"
+    Try to convert date_str to datetime object with format "YY/MM//DD"
     If successful:
         Return datetime object
     Else:
         Display "Invalid date format" message
         Return None
 
+Define function errormessage(prompt):
+    Loop until valid input is provided:
+        Try to input an integer for the prompt
+        If input is valid:
+            Return the integer value
+        Else:
+            Display "Invalid input" message
+
 Define function add_product():
     Input product name (convert to lowercase)
-    Input batch date
-    Call batchdate() to validate date
+    Input batch date (YY/MM//DD format)
+    Call batchdate() to validate the date
     If date is invalid:
         Return
     
-    Try to input quantity as integer
+    Try to input quantity as integer using errormessage()
     If invalid:
         Display "Invalid quantity" message
         Return
     
-    If product exists in inventory:
-        Ask if same unit cost as before
-        If yes:
-            Get cost from most recent batch
+    If product exists in inventory and has logged batches:
+        Ask if same unit cost as last logged batch
+        If "yes":
+            Get cost from most recent batch of product
         Else:
-            Input new unit cost
+            Input new unit cost using errormessage()
             If invalid:
                 Display "Invalid cost" message
                 Return
     Else:
-        Input unit cost
+        Input unit cost using errormessage()
         If invalid:
             Display "Invalid cost" message
             Return
     
-    Create new batch with date, quantity, and cost
-    Add batch to inventory for this product
-    Display confirmation message
+    Create new batch with product name, batch date, quantity, and unit cost
+    Add the batch to the inventory for this product
+    Display "Product added" confirmation message
 
 Define function remove_product():
     Input product name to remove (convert to lowercase)
-    If product not in inventory or inventory empty:
+    If product not in inventory or no batches exist for product:
         Display "Product not found" message
         Return
     
-    Input quantity to remove as integer
+    Input quantity to remove using errormessage()
     If invalid:
         Display "Invalid input" message
         Return
@@ -65,11 +73,11 @@ Define function remove_product():
             Remove batch from inventory
         Else:
             Subtract quantity to remove from batch quantity
-            Add quantity to remove to removed counter
+            Add quantity to removed counter
             Set quantity to remove to 0
     
     If removed counter > 0:
-        Display removal confirmation
+        Display removal confirmation message
     Else:
         Display "Not enough quantity" message
 
@@ -78,11 +86,20 @@ Define function check_inventory():
         Display "Inventory is empty" message
         Return
     
-    Display inventory header
-    For each product in sorted order:
+    Display inventory header (Product, Batch Date, Quantity, Unit Cost)
+    For each product in sorted order of product name:
         Sort batches by date (newest first)
         For each batch:
-            Display product name, date, quantity, and cost
+            Display product name, batch date, quantity, and unit cost
+
+Define function search_product():
+    Input product name to search (convert to lowercase)
+
+    If product exists in inventory:
+        Sort product batches by date (newest first)
+        Display search results with batch dates, quantities, and unit costs
+    Else:
+        Display "Product not found" message
 
 Define function menu():
     Display welcome message
@@ -102,7 +119,8 @@ Define function menu():
             1. Add product
             2. Remove product
             3. Check inventory
-            4. Exit
+            4. Search for a product
+            5. Exit
         
         Input user choice
         
@@ -113,7 +131,9 @@ Define function menu():
         Else if choice is 3:
             Call check_inventory()
         Else if choice is 4:
-            Display "Thank you! Goodbye!"
+            Call search_product()
+        Else if choice is 5:
+            Display goodbye message
             Break loop
         Else:
             Display "Invalid choice" message
