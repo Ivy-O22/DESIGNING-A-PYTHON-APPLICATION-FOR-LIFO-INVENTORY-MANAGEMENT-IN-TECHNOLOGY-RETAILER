@@ -14,11 +14,11 @@ def batchdate(date_str):
         return None
 
 def errormessage(prompt):
-    while True:
-        try:
-            return int(input(prompt))
-        except ValueError:
-            print("Please enter a valid number.\n")
+    try:
+        return int(input(prompt))
+    except ValueError:
+        print("⚠️ Invalid input. Please enter a valid number.\n")
+        return None
 
 #  ====== ADDING THE PRODUCT INTO THE INVENTORY  ====== 
 
@@ -30,6 +30,8 @@ def add_product():
         return
 
     qty = errormessage("Enter quantity: ")
+    if qty is None:
+        return
 
     # USES THE LAST LOGGED UNIT COST. 
     if name in inventory and len(inventory[name]) > 0:
@@ -38,20 +40,25 @@ def add_product():
             unitcost = inventory[name][-1]["cost"]
         else:
             unitcost = errormessage("Enter new unit cost: ")
+            if unitcost is None:
+                return
     else:
         unitcost = errormessage("Enter cost per unit: ")
+        if unitcost is None:
+            return
 
     batch = {
         "date": date_str, 
         "qty": qty,
         "cost": unitcost
     }
+
     # IF PRODUCT DOESN'T EXIST YET
     if name not in inventory:
         inventory[name] = []
     inventory[name].append(batch)
 
-    print(f"✅Product successfully added to inventory. New tech product batch added!\n{qty} unit(s) of {name.title()} (Date: {date_str}).\n")
+    print(f"✅ Product successfully added to inventory. New tech product batch added!\n{qty} unit(s) of {name.title()} (Date: {date_str}).\n")
 
 #  ====== REMOVING A PRODUCT FROM THE INVENTORY  ====== 
 
@@ -62,7 +69,16 @@ def remove_product():
         return
 
     qtyremove = errormessage("How many units to remove?: ")
+    if qtyremove is None:
+        return
+    
+    total_qty = sum(batch["qty"] for batch in inventory[name])
 
+    if qtyremove > total_qty:
+        print("⚠️ Not enough stock to remove the requested quantity!\n")
+        return
+
+    # Proceed with LIFO removal
     inventory[name].sort(key=lambda b: batchdate(b["date"]), reverse=True)
 
     removed = 0
@@ -78,9 +94,7 @@ def remove_product():
             qtyremove = 0
 
     if removed > 0:
-        print(f"🗑️Product successfully removed from the inventory. Removed {removed} unit(s) of {name.title()} from your tech inventory.\n")
-    else:
-        print("⚠️ Not enough stock to remove the requested quantity!\n")
+        print(f"🗑️ Product successfully removed from the inventory. Removed {removed} unit(s) of {name.title()} from your tech inventory.\n")
 
 #  ====== DISPLAYING THE WHOLE INVENTORY ====== 
 
